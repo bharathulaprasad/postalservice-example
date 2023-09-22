@@ -1,0 +1,49 @@
+// Import the Postal.js library
+const postal = require('postal');
+
+// Create a publisher
+const publisher = postal.channel('example-channel');
+
+// Create a subscriber for "topic-1"
+const subscriber1 = postal.subscribe({
+  channel: 'example-channel',
+  topic: 'topic-1',
+  callback: function (data, envelope) {
+    console.log('Subscriber 1 received:', data);
+  },
+});
+
+// Create another subscriber for "topic-2"
+const subscriber2 = postal.subscribe({
+  channel: 'example-channel',
+  topic: 'topic-2',
+  callback: function (data, envelope) {
+    console.log('Subscriber 2 received:', data);
+  },
+});
+
+// Publish messages to topics
+publisher.publish({
+  topic: 'topic-1',
+  data: 'Message 1 for topic-1',
+});
+
+publisher.publish({
+  topic: 'topic-2',
+  data: 'Message 1 for topic-2',
+});
+
+// Unsubscribe from topics
+subscriber1.unsubscribe();
+subscriber2.unsubscribe();
+
+// Publish more messages
+publisher.publish({
+  topic: 'topic-1',
+  data: 'Message 2 for topic-1',
+});
+
+publisher.publish({
+  topic: 'topic-2',
+  data: 'Message 2 for topic-2',
+});
