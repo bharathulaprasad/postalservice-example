@@ -1,4 +1,4 @@
-# postalservice-example
+# postalservice-example, a usecase scenario that to explain how this concept is useful with a simple example
 this is a simple example of postal javascript how subscribe and publish works
 
 **### Teamcenter Active workspace example secanrio**
